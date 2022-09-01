@@ -34,6 +34,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
         title: Text("Home Screen",
             style: GoogleFonts.poppins(
               textStyle: const TextStyle(color: Colors.black),
@@ -52,6 +53,33 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
               CupertinoIcons.profile_circled,
               color: Colors.black,
             ),
+          ),
+        ],
+      ),
+      drawer: CustomDrawer(loggedInUser: loggedInUser),
+    );
+  }
+}
+
+class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({
+    Key? key,
+    required this.loggedInUser,
+  }) : super(key: key);
+
+  final UserModel loggedInUser;
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      elevation: 8.0,
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          UserAccountsDrawerHeader(
+            decoration: const BoxDecoration(color: Color(0xffE5413F)),
+            accountName: Text("${loggedInUser.name}"),
+            accountEmail: Text("${loggedInUser.email}"),
           ),
         ],
       ),
