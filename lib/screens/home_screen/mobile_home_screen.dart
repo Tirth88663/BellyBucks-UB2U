@@ -73,13 +73,24 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       elevation: 8.0,
+      backgroundColor: const Color(0xffE5413F),
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            decoration: const BoxDecoration(color: Color(0xffE5413F)),
-            accountName: Text("${loggedInUser.name}"),
-            accountEmail: Text("${loggedInUser.email}"),
+            currentAccountPicture: ClipOval(
+              child: Image.asset(
+                'assets/images/logo.png',
+              ),
+            ),
+            accountName: Text(
+              "${loggedInUser.name}",
+              style: GoogleFonts.poppins(),
+            ),
+            accountEmail: Text(
+              "${loggedInUser.email}",
+              style: GoogleFonts.poppins(),
+            ),
           ),
         ],
       ),
