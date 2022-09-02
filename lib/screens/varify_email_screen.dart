@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bellybucks/screens/login%20screen/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -111,7 +112,14 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                       minimumSize: Size.fromHeight(
                           MediaQuery.of(context).size.height * 0.08),
                     ),
-                    onPressed: () => FirebaseAuth.instance.signOut(),
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                      );
+                    },
                     child: const Text(
                       "Cancel",
                       style:
