@@ -1,4 +1,4 @@
-import 'package:bellybucks/screens/home_screen/home_screen.dart';
+import 'package:bellybucks/screens/varify_email_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -234,7 +234,8 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
                   children: [
                     Text(
                       "Don't have an account?",
-                      style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 16)),
+                      style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(fontSize: 16)),
                     ),
                     const SizedBox(width: 10),
                     GestureDetector(
@@ -245,15 +246,15 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
                           ),
                         );
                       },
-                      child:  Text(
-                        "Sign Up",
-                        style: GoogleFonts.poppins(textStyle: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
-                          fontSize: 16,
-                          color: Color(0xffE5413F),
-                        ),)
-                      ),
+                      child: Text("Sign Up",
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                              fontSize: 16,
+                              color: Color(0xffE5413F),
+                            ),
+                          )),
                     )
                   ],
                 ),
@@ -279,7 +280,7 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
           .then((uid) => {
                 Fluttertoast.showToast(msg: "Login Successful"),
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const HomeScreen())),
+                    builder: (context) => const VerifyEmailScreen())),
               })
           .catchError((e) {
         Fluttertoast.showToast(msg: e!.message);
