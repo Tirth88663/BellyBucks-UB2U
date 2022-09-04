@@ -1,4 +1,4 @@
-import 'package:bellybucks/screens/varify_email_screen.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../forgot_password_screen.dart';
 import '../signup screen/signup_screen.dart';
+import '../varify_email_screen.dart';
 
 class MobileLoginScreen extends StatefulWidget {
   const MobileLoginScreen({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class MobileLoginScreen extends StatefulWidget {
 }
 
 class _MobileLoginScreenState extends State<MobileLoginScreen> {
+  final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   //formkey
   final _formkey = GlobalKey<FormState>();
 
