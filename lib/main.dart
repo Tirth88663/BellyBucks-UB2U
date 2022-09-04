@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:bellybucks/provider/dark_theme_provider.dart';
 import 'package:bellybucks/screens/home_screen/home_screen.dart';
@@ -64,6 +65,7 @@ class _MyAppState extends State<MyApp> {
             title: 'BellyBucks',
             debugShowCheckedModeBanner: false,
             theme: Styles.themeData(themeProvider.getDarkTheme, context),
+            scrollBehavior: MyCustomScrollBehavior(),
             home: const RootPage(),
           );
         },
@@ -119,4 +121,13 @@ class _RootPageState extends State<RootPage> {
           }),
     );
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }
