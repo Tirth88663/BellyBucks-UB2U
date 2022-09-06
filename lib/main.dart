@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:bellybucks/bottombar_navigation.dart';
 import 'package:bellybucks/provider/dark_theme_provider.dart';
-import 'package:bellybucks/screens/home_screen/home_screen.dart';
 import 'package:bellybucks/screens/login%20screen/login_screen.dart';
 import 'package:bellybucks/screens/varify_email_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -116,7 +116,7 @@ class _RootPageState extends State<RootPage> {
             } else {
               return FirebaseAuth.instance.currentUser == null
                   ? const LoginScreen()
-                  : const HomeScreen();
+                  : const BottomBarNavigation();
             }
           }),
     );

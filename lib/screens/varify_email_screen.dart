@@ -1,10 +1,9 @@
 import 'dart:async';
 
+import 'package:bellybucks/bottombar_navigation.dart';
 import 'package:bellybucks/screens/login%20screen/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import 'home_screen/home_screen.dart';
 
 class VerifyEmailScreen extends StatefulWidget {
   const VerifyEmailScreen({Key? key}) : super(key: key);
@@ -68,7 +67,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   @override
   Widget build(BuildContext context) {
     return isEmailVerified
-        ? const HomeScreen()
+        ? const BottomBarNavigation()
         : Scaffold(
             appBar: AppBar(
                 centerTitle: true,

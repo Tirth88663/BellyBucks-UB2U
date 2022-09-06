@@ -254,6 +254,11 @@ class _MobileSignUpScreenState extends State<MobileSignUpScreen> {
           )),
     );
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Form(
