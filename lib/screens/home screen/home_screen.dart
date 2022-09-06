@@ -1,7 +1,8 @@
 import 'package:bellybucks/responsive.dart';
-import 'package:bellybucks/screens/home_screen/desktop_home_screen.dart';
-import 'package:bellybucks/screens/home_screen/mobile_home_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'desktop_home_screen.dart';
+import 'mobile_home_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

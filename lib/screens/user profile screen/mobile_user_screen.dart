@@ -36,17 +36,22 @@ class _MobileUserScreenState extends State<MobileUserScreen> {
     var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xffE5413F),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text(
+          "Profile",
+          style: GoogleFonts.poppins(
+            textStyle: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              letterSpacing: 1,
+            ),
           ),
         ),
-        child: const Icon(Icons.arrow_back_ios_new_sharp),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -91,21 +96,7 @@ class _MobileUserScreenState extends State<MobileUserScreen> {
                       height: 188,
                       child: Column(
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text("Profile",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: const TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      letterSpacing: 1,
-                                    ),
-                                  )),
-                            ],
-                          ),
-                          const SizedBox(height: 24),
+                          const SizedBox(height: 56),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -127,8 +118,8 @@ class _MobileUserScreenState extends State<MobileUserScreen> {
                                   Text("Welcome, ",
                                       style: GoogleFonts.poppins(
                                         textStyle: const TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
                                           color: Colors.white,
                                           letterSpacing: 1,
                                         ),
@@ -137,8 +128,8 @@ class _MobileUserScreenState extends State<MobileUserScreen> {
                                   Text("${loggedInUser.name}",
                                       style: GoogleFonts.poppins(
                                         textStyle: const TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
                                           color: Colors.white,
                                           letterSpacing: 1,
                                         ),

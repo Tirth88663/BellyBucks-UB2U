@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +18,6 @@ class MobileHomeScreen extends StatefulWidget {
 
 class _MobileHomeScreenState extends State<MobileHomeScreen> {
   User? user = FirebaseAuth.instance.currentUser;
-  int _page = 0;
-  final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   UserModel loggedInUser = UserModel();
   String name = "";
   @override
@@ -39,12 +36,9 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
-        title: Text("Home Screen",
-            style: GoogleFonts.poppins(
-              textStyle: const TextStyle(color: Colors.black),
-            )),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -63,27 +57,6 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
         ],
       ),
       drawer: CustomDrawer(loggedInUser: loggedInUser),
-      bottomNavigationBar: CurvedNavigationBar(
-        key: _bottomNavigationKey,
-        index: 0,
-        height: 60.0,
-        items: const <Widget>[
-          Icon(Icons.home_outlined, size: 30, color: Colors.white),
-          Icon(Icons.shopping_bag_outlined, size: 30, color: Colors.white),
-          Icon(Icons.perm_identity, size: 30, color: Colors.white),
-        ],
-        color: const Color(0xffE5413F),
-        buttonBackgroundColor: const Color(0xffE5413F),
-        backgroundColor: Colors.white,
-        animationCurve: Curves.easeInOut,
-        animationDuration: const Duration(milliseconds: 600),
-        onTap: (index) {
-          setState(() {
-            _page = index;
-          });
-        },
-        letIndexChange: (index) => true,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: SingleChildScrollView(
