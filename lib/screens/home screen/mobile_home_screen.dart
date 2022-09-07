@@ -20,6 +20,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
   String name = "";
+  int? selectedIndex;
   @override
   void initState() {
     super.initState();
@@ -87,7 +88,6 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
                 ],
               ),
               const SizedBox(height: 16),
-
               //SearchBar
               Container(
                 decoration: const BoxDecoration(
@@ -144,55 +144,60 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
                 ),
               ),
               const SizedBox(height: 40),
-              // Container(
-              //   height: 200,
-              //   width: 500,
-              //   color: Colors.white,
-              //   child: ListView(
-              //     physics: const BouncingScrollPhysics(),
-              //     shrinkWrap: true,
-              //     scrollDirection: Axis.horizontal,
-              //     children: [
-              //       Container(
-              //         height: 100,
-              //         width: 95,
-              //         decoration: const BoxDecoration(
-              //           color: Colors.white,
-              //           borderRadius: BorderRadius.all(
-              //             Radius.circular(20),
-              //           ),
-              //           boxShadow: [
-              //             BoxShadow(
-              //               color: Colors.grey,
-              //               offset: Offset(5, 5),
-              //               spreadRadius: 3,
-              //               blurRadius: 4,
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
               SizedBox(
-                height: 100,
+                height: 155,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
                   children: List.generate(
                     10,
-                    (index) => Card(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                      ),
-                      child: SizedBox(
-                        height: 147,
-                        width: 95,
-                        child: Center(
-                          child: Text("item $index"),
+                    (index) => GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      onDoubleTap: () {
+                        setState(() {
+                          selectedIndex = null;
+                        });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 8),
+                        child: Container(
+                          width: 103,
+                          decoration: BoxDecoration(
+                            color:
+                                selectedIndex != null && selectedIndex == index
+                                    ? const Color(0xffE5413F)
+                                    : Colors.white,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset: Offset(1, 4),
+                                spreadRadius: 0,
+                                blurRadius: 4,
+                              ),
+                            ],
+                          ),
+                          child: Center(
+                            child: Text(
+                              "item $index",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  color: selectedIndex != null &&
+                                          selectedIndex == index
+                                      ? Colors.white
+                                      : Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
