@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:bellybucks/widgets/products.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,6 +22,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
   UserModel loggedInUser = UserModel();
   String name = "";
   int? selectedIndex;
+
   @override
   void initState() {
     super.initState();
@@ -36,6 +38,8 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBody: true,
       appBar: AppBar(
@@ -89,58 +93,61 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
               ),
               const SizedBox(height: 16),
               //SearchBar
-              Container(
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(4, 3),
-                      spreadRadius: 0.0,
-                      blurRadius: 4,
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
                     ),
-                  ],
-                ),
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          // prefixIcon: Icon(CupertinoIcons.search),
-                          hintText: "Search Here",
-                          hintStyle: GoogleFonts.poppins(
-                            textStyle: const TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                          border: InputBorder.none,
-                        ),
-                        onChanged: (value) {
-                          name = value;
-                          setState(() {});
-                        },
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(4, 3),
+                        spreadRadius: 0.0,
+                        blurRadius: 4,
                       ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: InkWell(
-                          child: const Icon(CupertinoIcons.search,
-                              color: Colors.grey),
-                          onTap: () {
+                    ],
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            // prefixIcon: Icon(CupertinoIcons.search),
+                            hintText: "Search Here",
+                            hintStyle: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            border: InputBorder.none,
+                          ),
+                          onChanged: (value) {
+                            name = value;
                             setState(() {});
                           },
                         ),
                       ),
-                    ),
-                  ],
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 40),
+                          child: InkWell(
+                            child: const Icon(CupertinoIcons.search,
+                                color: Colors.grey),
+                            onTap: () {
+                              setState(() {});
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 40),
@@ -204,6 +211,30 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 24),
+              // SizedBox(
+              //   height: 500,
+              //   child: ListView.builder(
+              //     itemCount: 3,
+              //     itemBuilder: (context, index) {
+              //       return Center(
+              //         child: Padding(
+              //           padding: const EdgeInsets.symmetric(vertical: 8),
+              //           child: ClipRRect(
+              //             borderRadius:
+              //                 const BorderRadius.all(Radius.circular(20)),
+              //             child: Container(
+              //               height: width / 1.220149253731343,
+              //               width: width,
+              //               color: const Color(0xffE5413F),
+              //             ),
+              //           ),
+              //         ),
+              //       );
+              //     },
+              //   ),
+              // )
+              const Products(),
             ],
           ),
         ),
