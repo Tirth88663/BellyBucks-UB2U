@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             theme: Styles.themeData(themeProvider.getDarkTheme, context),
             scrollBehavior: MyCustomScrollBehavior(),
-            home: const LoginScreen(),
+            home: const RootPage(),
           );
         },
       ),

@@ -234,7 +234,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
               //     },
               //   ),
               // )
-              const Products(),
+              Products(),
             ],
           ),
         ),

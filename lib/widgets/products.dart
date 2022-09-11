@@ -1,22 +1,25 @@
 import 'package:bellybucks/controllers/cart_controllers.dart';
-import 'package:bellybucks/models/product_model.dart';
+import 'package:bellybucks/controllers/product_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class Products extends StatelessWidget {
-  const Products({Key? key}) : super(key: key);
+  final productController = Get.put(ProductController());
+  Products({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 500,
-      child: ListView.builder(
-        itemCount: ProductModel.products.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ProductCard(index: index);
-        },
+    return Obx(
+      () => SizedBox(
+        height: 500,
+        child: ListView.builder(
+          itemCount: productController.products.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ProductCard(index: index);
+          },
+        ),
       ),
     );
   }
@@ -24,6 +27,7 @@ class Products extends StatelessWidget {
 
 class ProductCard extends StatelessWidget {
   final cartController = Get.put(CartController());
+  final ProductController productController = Get.find();
   final int index;
   ProductCard({Key? key, required this.index}) : super(key: key);
 
@@ -35,14 +39,14 @@ class ProductCard extends StatelessWidget {
         CircleAvatar(
           radius: 40,
           backgroundImage: NetworkImage(
-            ProductModel.products[index].imageUrl,
+            productController.products[index].imageUrl,
           ),
         ),
-        Text(ProductModel.products[index].name),
-        Text("${ProductModel.products[index].price}"),
+        Text(productController.products[index].name),
+        Text("${productController.products[index].price}"),
         IconButton(
           onPressed: () {
-            cartController.addProduct(ProductModel.products[index]);
+            cartController.addProduct(productController.products[index]);
           },
           icon: const Icon(
             Icons.add_circle,
