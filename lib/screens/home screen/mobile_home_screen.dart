@@ -1,12 +1,17 @@
 import 'dart:ui';
 
-import 'package:bellybucks/widgets/products.dart';
+import 'package:bellybucks/models/product_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../controllers/cart_controllers.dart';
+import '../../models/cart_model.dart';
 import '../../models/user_model.dart';
 import '../user profile screen/user_screen.dart';
 
@@ -18,10 +23,13 @@ class MobileHomeScreen extends StatefulWidget {
 }
 
 class _MobileHomeScreenState extends State<MobileHomeScreen> {
+  List<ProductModel> productModels = List<ProductModel>.empty(growable: true);
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
-  String name = "";
+  static String name = "";
   int? selectedIndex;
+  // final productController = Get.put(ProductController());
+  final cartController = Get.put(CartController());
 
   @override
   void initState() {
@@ -234,7 +242,74 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
               //     },
               //   ),
               // )
-              Products(),
+
+              StreamBuilder(
+                stream: (name != "")
+                    ? FirebaseFirestore.instance
+                        .collection('products')
+                        .where("searchKeywords", arrayContains: name)
+                        .snapshots()
+                    : FirebaseFirestore.instance
+                        .collection('products')
+                        .snapshots(),
+                builder:
+                    (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+                  if (streamSnapshot.hasData) {
+                    // var map = streamSnapshot.data?.docs;
+                    // productModels.clear();
+                    // map?.forEach((element) {
+                    //   var productModel = ProductModel.fromMap(map);
+                    //   productModels.add(productModel);
+                    // });
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: streamSnapshot.data!.docs.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final DocumentSnapshot data =
+                            streamSnapshot.data!.docs[index];
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CircleAvatar(
+                              radius: 40,
+                              backgroundImage: NetworkImage(
+                                data['imageUrl'],
+                              ),
+                            ),
+                            Text(data['name']),
+                            Text("${data['price']}"),
+                            IconButton(
+                              onPressed: () async {
+                                CartModel cartModel = CartModel();
+                                User? user = FirebaseAuth.instance.currentUser;
+
+                                //writing all values
+                                cartModel.name = data['name'];
+                                cartModel.price = data['price'];
+                                cartModel.imageUrl = data['imageUrl'];
+
+                                await FirebaseFirestore.instance
+                                    .collection("${user?.uid}")
+                                    .doc(data['name'])
+                                    .set(cartModel.toMap());
+                                Fluttertoast.showToast(msg: "Added to Cart");
+                              },
+                              icon: const Icon(
+                                Icons.add_circle,
+                              ),
+                            )
+                          ],
+                        );
+                      },
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(color: Color(0xffE5413F)),
+                  );
+                },
+              ),
+
+              // CatalogProducts(),
             ],
           ),
         ),

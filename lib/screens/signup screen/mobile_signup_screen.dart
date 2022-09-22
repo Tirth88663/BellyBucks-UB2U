@@ -86,9 +86,9 @@ class _MobileSignUpScreenState extends State<MobileSignUpScreen> {
           return ("Please Enter Valid Email");
         }
         //reg expression for validation of domain
-        if (!RegExp("\b*.com\$", caseSensitive: true).hasMatch(value)) {
-          return ("Enter Valid Email");
-        }
+        // if (!RegExp("\b*.com\$", caseSensitive: true).hasMatch(value)) {
+        //   return ("Enter Valid Email");
+        // }
         return null;
       },
       onSaved: (value) {
