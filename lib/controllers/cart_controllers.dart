@@ -2,7 +2,7 @@ import 'package:bellybucks/models/product_model.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
-  var _products = {}.obs;
+  final _products = {}.obs;
 
   void addProduct(ProductModel product) {
     if (_products.containsKey(product)) {

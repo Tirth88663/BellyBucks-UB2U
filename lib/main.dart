@@ -8,7 +8,6 @@ import 'package:bellybucks/screens/varify_email_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import 'consts/theme_data.dart';
@@ -23,9 +22,9 @@ Future<void> main() async {
       projectId: "bellybucks-f5be8", // Your projectId
     ),
   );
-  runApp(const GetMaterialApp(
-    home: MyApp(),
-  ));
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatefulWidget {

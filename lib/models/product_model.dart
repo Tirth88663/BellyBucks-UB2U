@@ -1,39 +1,57 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class ProductModel {
-  final String name;
-  final double price;
-  final String imageUrl;
+  // String? key;
+  String? name;
+  double? price;
+  String? imageUrl;
 
-  const ProductModel({
-    required this.name,
-    required this.price,
-    required this.imageUrl,
+  ProductModel({
+    // this.key,
+    this.name,
+    this.price,
+    this.imageUrl,
   });
 
-  static ProductModel fromsnapshot(DocumentSnapshot snap) {
-    ProductModel product = ProductModel(
-      name: snap['name'],
-      price: snap['price'],
-      imageUrl: snap['imageUrl'],
+  factory ProductModel.fromMap(map) {
+    return ProductModel(
+      // key: map['key'],
+      name: map['name'],
+      price: map['price'],
+      imageUrl: map['imageUrl'],
     );
-    return product;
+  }
+  //sending data to server
+  Map<String, dynamic> toMap() {
+    return {
+      // 'key': key,
+      'name': name,
+      'price': price,
+      'imageUrl': imageUrl,
+    };
   }
 
-  // static const List<ProductModel> products = [
-  //   ProductModel(
+  // static ProductModel fromsnapshot(DocumentSnapshot snap) {
+  //   ProductModel product = ProductModel(
+  //     name: snap['name'],
+  //     price: snap['price'],
+  //     imageUrl: snap['imageUrl'],
+  //   );
+  //   return product;
+  // }
+
+  // static const List<Product> products = [
+  //   Product(
   //     name: "apple",
   //     price: 2.00,
   //     imageUrl:
   //         "https://th.bing.com/th/id/OIP.hVjhVt5EiigNSJr1QK93AAHaIJ?pid=ImgDet&rs=1",
   //   ),
-  //   ProductModel(
+  //   Product(
   //     name: "banana",
   //     price: 3.00,
   //     imageUrl:
   //         "https://th.bing.com/th/id/OIP.VWk3BpwznL_qitkaxUwFcAHaFe?pid=ImgDet&rs=1",
   //   ),
-  //   ProductModel(
+  //   Product(
   //     name: "watermealon",
   //     price: 4.00,
   //     imageUrl:
