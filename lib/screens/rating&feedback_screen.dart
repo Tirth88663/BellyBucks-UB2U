@@ -31,7 +31,7 @@ class _Ratingpagestate extends State<Ratingpage> {
 
           children: <Widget>[
 
-            Image.asset("assets/food_doodle_2.png",
+            Image.asset("assets/images/food_doodle_2.png",
               fit: BoxFit.cover,
               height: height,
               width: width,
