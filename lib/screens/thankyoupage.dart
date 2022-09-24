@@ -18,7 +18,7 @@ class _ThankyoupageState extends State<Thankyoupage> {
             child: Stack(
               alignment: Alignment.center,
               children: <Widget>[
-              Image.asset("lib/assets/food_doodle_2.png",
+              Image.asset("assets/images/food_doodle_2.png",
                   fit: BoxFit.cover,
                   height: height,
                   width: width,
@@ -27,7 +27,7 @@ class _ThankyoupageState extends State<Thankyoupage> {
               ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 130.0),
-                  child: Image.asset("lib/assets/tick3.png",
+                  child: Image.asset("assets/images/tick.png",
 
                     fit: BoxFit.cover,
                     height: 50.0,
