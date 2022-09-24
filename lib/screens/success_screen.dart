@@ -18,7 +18,7 @@ class _OrderSuccesspagestate extends State<OrderSuccesspage> {
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
-            Image.asset("assets/food_doodle_2.png",
+            Image.asset("assets/images/food_doodle_2.png",
               fit: BoxFit.cover,
               height: height,
               width: width,
@@ -27,7 +27,7 @@ class _OrderSuccesspagestate extends State<OrderSuccesspage> {
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 155.0),
-              child: Image.asset("assets/tick3.png",
+              child: Image.asset("assets/images/tick.png",
 
                 fit: BoxFit.cover,
                 height: 50.0,
