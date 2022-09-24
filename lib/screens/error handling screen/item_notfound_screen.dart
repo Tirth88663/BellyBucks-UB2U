@@ -11,8 +11,8 @@ class NotFoundpage extends StatefulWidget
 class _NotFoundpagestate extends State<NotFoundpage> {
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    //var height = MediaQuery.of(context).size.height;
+    //var width = MediaQuery.of(context).size.width;
     return  Scaffold(
       
       backgroundColor: Colors.white,
