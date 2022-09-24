@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-class NotFoundpage extends StatefulWidget {
+class NotFoundpage extends StatefulWidget
+{
   const NotFoundpage({Key? key}) : super(key: key);
 
   @override
@@ -13,7 +14,7 @@ class _NotFoundpagestate extends State<NotFoundpage> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return  Scaffold(
-      //backgroundColor: const Color(0xFFE5413F),
+      
       backgroundColor: Colors.white,
       body: Center(
         child: Stack(
@@ -26,9 +27,10 @@ class _NotFoundpagestate extends State<NotFoundpage> {
               color: Colors.white.withOpacity(0.4),
               colorBlendMode: BlendMode.modulate,
             ),*/
+            
             Padding(
               padding: EdgeInsets.only(bottom: 290.0),
-              child: Image.asset("assets/unhappy_chef.png",
+              child: Image.asset("assets/images/unhappy_chef.png",
 
                 fit: BoxFit.cover,
                 height: 280.0,
@@ -36,6 +38,7 @@ class _NotFoundpagestate extends State<NotFoundpage> {
                 //color: Colors.transparent,
                 colorBlendMode: BlendMode.modulate,),
             ),
+            
             Padding(
               padding: const EdgeInsets.only(top: 50.0),
               child: Text('\nSorry\n Item Not Found !',
@@ -48,6 +51,7 @@ class _NotFoundpagestate extends State<NotFoundpage> {
                 ),
               ),
             ),
+            
             Padding(
               padding: const EdgeInsets.only(top: 340.0),
               child: Text('Item currently unavaliable\nWe are updating the menu',
@@ -60,29 +64,6 @@ class _NotFoundpagestate extends State<NotFoundpage> {
                 ),
               ),
             ),
-
-            /*Padding(
-              padding: const EdgeInsets.only(top: 165.0),
-              child: const SizedBox(
-                width: 170.0,
-                height: 33.5,
-
-                child: DecoratedBox(
-                  decoration: const BoxDecoration(
-                    color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(20.0),
-
-                  ),),
-
-                  child:Text('Thank You',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        fontSize:28.0,
-                        color: Colors.black, fontWeight: FontWeight.w600),
-
-                  ) ,
-                ),
-              ),
-            ),*/
 
           ],
         ),
