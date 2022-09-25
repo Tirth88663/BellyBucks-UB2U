@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:bellybucks/admin/admin_page.dart';
 import 'package:bellybucks/bottombar_navigation.dart';
 import 'package:bellybucks/provider/dark_theme_provider.dart';
 import 'package:bellybucks/screens/login%20screen/login_screen.dart';
@@ -68,7 +69,7 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             theme: Styles.themeData(themeProvider.getDarkTheme, context),
             scrollBehavior: MyCustomScrollBehavior(),
-            home: const RootPage(),
+            home: const AdminPage(),
           );
         },
       ),
