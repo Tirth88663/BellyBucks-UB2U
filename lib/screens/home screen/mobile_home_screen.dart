@@ -27,6 +27,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
   static String name = "";
+  List<String> categoryList = ['fruits', 'fruit', 'cake'];
   int? selectedIndex;
   // final productController = Get.put(ProductController());
   final cartController = Get.put(CartController());
@@ -158,57 +159,61 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 10),
               SizedBox(
                 height: 155,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  children: List.generate(
-                    10,
-                    (index) => GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = index;
-                        });
-                      },
-                      onDoubleTap: () {
-                        setState(() {
-                          selectedIndex = null;
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 8),
-                        child: Container(
-                          width: 103,
-                          decoration: BoxDecoration(
-                            color:
-                                selectedIndex != null && selectedIndex == index
-                                    ? const Color(0xffE5413F)
-                                    : Colors.white,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.grey,
-                                offset: Offset(1, 4),
-                                spreadRadius: 0,
-                                blurRadius: 4,
+                child: Center(
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    children: List.generate(
+                      3,
+                      (index) => GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = index;
+                            name = categoryList[index];
+                          });
+                        },
+                        onDoubleTap: () {
+                          setState(() {
+                            selectedIndex = null;
+                            name = "";
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 8),
+                          child: Container(
+                            width: 103,
+                            decoration: BoxDecoration(
+                              color: selectedIndex != null &&
+                                      selectedIndex == index
+                                  ? const Color(0xffE5413F)
+                                  : Colors.white,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(10),
                               ),
-                            ],
-                          ),
-                          child: Center(
-                            child: Text(
-                              "item $index",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  color: selectedIndex != null &&
-                                          selectedIndex == index
-                                      ? Colors.white
-                                      : Colors.black,
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  offset: Offset(1, 4),
+                                  spreadRadius: 0,
+                                  blurRadius: 4,
+                                ),
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                "item $index",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    color: selectedIndex != null &&
+                                            selectedIndex == index
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
@@ -265,6 +270,8 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
                       shrinkWrap: true,
                       itemCount: streamSnapshot.data!.docs.length,
                       itemBuilder: (BuildContext context, int index) {
+                        CartModel cartModel = CartModel();
+                        User? user = FirebaseAuth.instance.currentUser;
                         final DocumentSnapshot data =
                             streamSnapshot.data!.docs[index];
                         return Row(
@@ -280,13 +287,11 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
                             Text("${data['price']}"),
                             IconButton(
                               onPressed: () async {
-                                CartModel cartModel = CartModel();
-                                User? user = FirebaseAuth.instance.currentUser;
-
                                 //writing all values
                                 cartModel.name = data['name'];
                                 cartModel.price = data['price'];
                                 cartModel.imageUrl = data['imageUrl'];
+                                cartModel.quantity = 1;
 
                                 await FirebaseFirestore.instance
                                     .collection("${user?.uid}")

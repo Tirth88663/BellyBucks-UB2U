@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../screens/cart screen/mobile_cart_screen.dart';
+
 class CartTotal extends StatelessWidget {
   final CartController controller = Get.find();
   CartTotal({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    MobileCartScreen cartScreen = MobileCartScreen();
     return Obx(
       () => controller.products.length == 0
           ? Container()
@@ -27,7 +30,7 @@ class CartTotal extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "₹${controller.total}",
+                    "${key.currentState?.tirth}",
                     style: GoogleFonts.poppins(
                       textStyle: const TextStyle(
                         fontSize: 24,
