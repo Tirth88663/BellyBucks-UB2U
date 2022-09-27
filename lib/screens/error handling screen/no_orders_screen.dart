@@ -20,7 +20,7 @@ class _NoOrdersPagestate extends State<NoOrdersPage> {
             
             Padding(
               padding: const EdgeInsets.only(bottom: 220.0),
-              child: Image.asset("assets/no_orders.PNG",
+              child: Image.asset("assets/images/no_orders.PNG",
 
                 fit: BoxFit.cover,
                 height: 300.0,
