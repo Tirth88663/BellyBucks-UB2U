@@ -1,32 +1,31 @@
 import 'dart:async';
 import 'dart:ui';
 
-import 'package:bellybucks/admin/admin_page.dart';
 import 'package:bellybucks/bottombar_navigation.dart';
 import 'package:bellybucks/provider/dark_theme_provider.dart';
 import 'package:bellybucks/screens/login%20screen/login_screen.dart';
+import 'package:bellybucks/screens/splash_screen.dart';
 import 'package:bellybucks/screens/varify_email_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'consts/theme_data.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: const FirebaseOptions(
-      apiKey: "AIzaSyC5buMB0nxik2iu4WhiWdXeWxm9NtpLCRQ", // Your apiKey
-      appId: "XXX", // Your appId
-      messagingSenderId: "XXX", // Your messagingSenderId
-      projectId: "bellybucks-f5be8", // Your projectId
-    ),
-  );
-  runApp(
-    const MyApp(),
-  );
-}
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp(
+//     options: const FirebaseOptions(
+//       apiKey: "AIzaSyC5buMB0nxik2iu4WhiWdXeWxm9NtpLCRQ", // Your apiKey
+//       appId: "XXX", // Your appId
+//       messagingSenderId: "XXX", // Your messagingSenderId
+//       projectId: "bellybucks-f5be8", // Your projectId
+//     ),
+//   );
+//   runApp(
+//     const MyApp(),
+//   );
+// }
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -69,7 +68,7 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             theme: Styles.themeData(themeProvider.getDarkTheme, context),
             scrollBehavior: MyCustomScrollBehavior(),
-            home: const AdminPage(),
+            home: const SplashScreen(),
           );
         },
       ),

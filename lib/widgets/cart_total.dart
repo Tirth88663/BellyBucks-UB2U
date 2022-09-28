@@ -30,7 +30,7 @@ class CartTotal extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "${key.currentState?.tirth}",
+                    "",
                     style: GoogleFonts.poppins(
                       textStyle: const TextStyle(
                         fontSize: 24,

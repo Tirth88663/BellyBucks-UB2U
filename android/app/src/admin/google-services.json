@@ -1,0 +1,121 @@
+{
+  "project_info": {
+    "project_number": "159235608382",
+    "project_id": "bellybucks-f5be8",
+    "storage_bucket": "bellybucks-f5be8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159235608382:android:a5241070dcf1c96845e66f",
+        "android_client_info": {
+          "package_name": "com.bellybucks.bellybucks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159235608382-ecnuthsnvj7j8m9otbgf0jp885dclp84.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bellybucks.bellybucks",
+            "certificate_hash": "421705ac5a8845c983b5fc573204cfb920ca0a4b"
+          }
+        },
+        {
+          "client_id": "159235608382-mt0j2vmfi0gs6n7mlao62l2ba4rqo748.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5buMB0nxik2iu4WhiWdXeWxm9NtpLCRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159235608382-mt0j2vmfi0gs6n7mlao62l2ba4rqo748.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159235608382:android:422630c05548894445e66f",
+        "android_client_info": {
+          "package_name": "com.bellybucks.bellybucks.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159235608382-tiiuhher22inf14vcpj11n1rmgvo7sdd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bellybucks.bellybucks.admin",
+            "certificate_hash": "421705ac5a8845c983b5fc573204cfb920ca0a4b"
+          }
+        },
+        {
+          "client_id": "159235608382-mt0j2vmfi0gs6n7mlao62l2ba4rqo748.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5buMB0nxik2iu4WhiWdXeWxm9NtpLCRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159235608382-mt0j2vmfi0gs6n7mlao62l2ba4rqo748.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159235608382:android:fcfa2ae638e2754f45e66f",
+        "android_client_info": {
+          "package_name": "com.bellybucks.bellybucks.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159235608382-087fjjmub6pdsrh9afsmhailh1844tsu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bellybucks.bellybucks.customer",
+            "certificate_hash": "421705ac5a8845c983b5fc573204cfb920ca0a4b"
+          }
+        },
+        {
+          "client_id": "159235608382-mt0j2vmfi0gs6n7mlao62l2ba4rqo748.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5buMB0nxik2iu4WhiWdXeWxm9NtpLCRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159235608382-mt0j2vmfi0gs6n7mlao62l2ba4rqo748.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
