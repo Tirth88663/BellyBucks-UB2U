@@ -1,4 +1,4 @@
-import 'package:bellybucks/screens/login%20screen/login_screen.dart';
+import 'package:bellybucks/main.dart';
 import 'package:flutter/material.dart';
 
 import '../responsive.dart';
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const LoginScreen(),
+        builder: (context) => const RootPage(),
       ),
     );
   }

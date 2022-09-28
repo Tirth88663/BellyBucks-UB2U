@@ -54,11 +54,30 @@ android {
         versionName flutterVersionName
     }
 
+    flavorDimensions "app"
+    productFlavors {
+        customer {
+            dimension "app"
+            applicationId "com.bellybucks.bellybucks.customer"
+            versionCode 1
+            versionName "1.0"
+        }
+        admin {
+            dimension "app"
+            applicationId "com.bellybucks.bellybucks.admin"
+            versionCode 1
+            versionName "1.0"
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+            minifyEnabled true
+//            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
