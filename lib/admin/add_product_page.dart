@@ -204,12 +204,17 @@ class _AddProductState extends State<AddProduct> {
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
-            centerTitle: true,
+            iconTheme: const IconThemeData(color: Colors.black),
             title: Text(
               "Add new Product",
-              style: GoogleFonts.poppins(),
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 22,
+                  color: Colors.black),
             ),
-            backgroundColor: const Color(0xffE5413F),
+            backgroundColor: Colors.transparent,
+            titleSpacing: 1.5,
+            centerTitle: true,
             elevation: 0,
           ),
           body: SingleChildScrollView(
