@@ -36,7 +36,9 @@ class ProductModel {
 
   setSearchParam(String name, category) {
     List<String> caseSearchList = [];
-    String temp = "";
+    String temp = " ";
+    caseSearchList.add(temp);
+    temp = "";
     for (int i = 0; i < name.length; i++) {
       temp = temp + name[i];
       caseSearchList.add(temp);
